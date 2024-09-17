@@ -1,0 +1,32 @@
+// main logic for Ceiling Fan
+
+class CeilingFan {
+    private int speed;
+    private boolean clockwise;
+}
+
+public ceilingFan(){
+    this.speed=0;
+    this.clockwise=true;
+}
+
+public void pullSpeedCord(){
+    if(speed==3){
+        speed=0;
+    }else{
+        speed++;
+    }
+}
+
+public void pullDirectionCord(){
+    clockwise=!clockwise;
+}
+
+public String toString(){
+    return "Speed: "+speed+", Direction: "+ (clockwise?"clockwise":"Counterwise")
+}
+class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Try programiz.pro");
+    }
+}
