@@ -1,0 +1,50 @@
+//Unit Test Cases
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class CeilingFanTest {
+
+    @Test
+    public void testInitialState() {
+        CeilingFan fan = new CeilingFan();
+        assertEquals("Speed: 0, Direction: Clockwise", fan.toString());
+    }
+
+    @Test
+    public void testSpeedCord() {
+        CeilingFan fan = new CeilingFan();
+        fan.pullSpeedCord();
+        assertEquals("Speed: 1, Direction: Clockwise", fan.toString());
+        fan.pullSpeedCord();
+        assertEquals("Speed: 2, Direction: Clockwise", fan.toString());
+        fan.pullSpeedCord();
+        assertEquals("Speed: 3, Direction: Clockwise", fan.toString());
+        fan.pullSpeedCord();
+        assertEquals("Speed: 0, Direction: Clockwise", fan.toString());
+    }
+
+    @Test
+    public void testDirectionCord() {
+        CeilingFan fan = new CeilingFan();
+        fan.pullDirectionCord();
+        assertEquals("Speed: 0, Direction: Counterclockwise", fan.toString());
+        fan.pullDirectionCord();
+        assertEquals("Speed: 0, Direction: Clockwise", fan.toString());
+    }
+
+    @Test
+    public void testSpeedAndDirectionCombination() {
+        CeilingFan fan = new CeilingFan();
+        fan.pullSpeedCord(); // Speed: 1
+        fan.pullDirectionCord(); // Counterclockwise direction
+        assertEquals("Speed: 1, Direction: Counterclockwise", fan.toString());
+        fan.pullSpeedCord(); // Speed: 2
+        assertEquals("Speed: 2, Direction: Counterclockwise", fan.toString());
+        fan.pullDirectionCord(); // Clockwise direction
+        fan.pullSpeedCord(); // Speed: 3
+        assertEquals("Speed: 3, Direction: Clockwise", fan.toString());
+        fan.pullSpeedCord(); // Speed: 0
+        assertEquals("Speed: 0, Direction: Clockwise", fan.toString());
+    }
+}
